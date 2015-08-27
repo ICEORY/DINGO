@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORWARD"
+        android:id="@+id/btn_forward"
+        android:layout_marginTop="37dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        android:id="@+id/btn_stop"
+        android:layout_below="@+id/btn_forward"
+        android:layout_toLeftOf="@+id/txt_data"
+        android:layout_toStartOf="@+id/txt_data"
+        android:layout_marginTop="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SendCommand:"
+        android:id="@+id/textView"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/btn_backward"
+        android:layout_toLeftOf="@+id/btn_forward"
+        android:layout_toStartOf="@+id/btn_forward" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:id="@+id/txt_data"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toRightOf="@+id/btn_forward"
+        android:layout_toEndOf="@+id/btn_forward"
+        android:singleLine="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LEFT"
+        android:id="@+id/btn_left"
+        android:layout_alignTop="@+id/btn_stop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RIGHT"
+        android:id="@+id/btn_right"
+        android:focusable="true"
+        android:layout_above="@+id/btn_backward"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACKWARD"
+        android:id="@+id/btn_backward"
+        android:layout_below="@+id/btn_stop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto-Mode"
+        android:id="@+id/radio_auto"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Control Mode"
+        android:id="@+id/radio_control"
+        android:layout_alignTop="@+id/radio_auto"
+        android:layout_alignLeft="@+id/btn_stop"
+        android:layout_alignStart="@+id/btn_stop"
+        android:singleLine="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="input angle:"
+        android:id="@+id/textView2"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/btn_backward"
+        android:layout_toStartOf="@+id/btn_backward" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_input"
+        android:layout_alignLeft="@+id/btn_stop"
+        android:layout_alignStart="@+id/btn_stop"
+        android:layout_alignBottom="@+id/textView2"
+        android:singleLine="true"
+        android:numeric="integer"
+        android:inputType="number" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/btn_input"
+        android:layout_below="@+id/textView2"
+        android:layout_toLeftOf="@+id/txt_data"
+        android:layout_toStartOf="@+id/txt_data"
+        android:layout_marginTop="43dp" />
+
+    <service
+        android:name="PadBotControl">
+        <intent-filter>
+            <action android:name="scut.dingo.padbotcontrol.service"/>
+        </intent-filter>
+    </service>
+
+</RelativeLayout>
